@@ -29,9 +29,9 @@ void print_DATE(DATE fecha) {
     printf("%d-%d-%d\n", fecha.dia, fecha.mes, fecha.anyo);
 }
 
-void print_ALUMNO(struct ALUMNO *alumno) {
-    printf("%s\t%s\t", alumno->DNI, alumno->nom_comp);
-    print_DATE(alumno->nac);
+void print_ALUMNO(struct ALUMNO alumno) {
+    printf("%s\t%s\t", alumno.DNI, alumno.nom_comp);
+    print_DATE(alumno.nac);
 }
 
 void rand_DATE(DATE *fecha) {
