@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>1
+#include <time.h>
 
 typedef struct {
     unsigned dia, mes, anyo;
@@ -33,8 +34,39 @@ void print_ALUMNO(struct ALUMNO *alumno) {
     print_DATE(alumno->nac);
 }
 
+void rand_DATE(DATE *fecha) {
+    int day = 0, month = 0, year = 0;
+    month = (rand() % 12) + 1;
+
+    year = (rand() % 7) + 1999;
+
+    if (month <= 7) {
+        if (month % 2) {
+            day = (rand() % 30) + 1;
+        }else if (month == 2) {
+            if (year % 100 && year % 400) {
+                day = (rand() % 29) + 1;
+            }else {
+                day = (rand() % 28) + 1;
+            }
+        }else {
+            day = (rand() % 31) + 1;
+        }
+    }else {
+        if (month % 2) {
+            day = (rand() % 31) + 1;
+        }else {
+            day = (rand() % 30) + 1;
+        }
+    }
+
+    fecha->dia = day;
+    fecha->mes = month;
+    fecha->anyo = year;
+}
+
 int main(void)
 {
-
+    srand(time(NULL));
     return 0;
 }
