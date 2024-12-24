@@ -60,7 +60,7 @@ void rand_DATE(DATE *fecha) {
         fecha->dia = (rand() % 31) + 1;
         fecha->mes = (rand() % 12) + 1;
         fecha->anyo = (rand() % 7) + 1999;
-    }while(is_fecha_valida(*fecha));
+    }while(!is_fecha_valida(*fecha));
 }
 
 
