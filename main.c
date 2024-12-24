@@ -28,12 +28,13 @@ void rand_ALUMNO(struct ALUMNO  *);
 unsigned es_fecha_valida(DATE);
 
 void print_DATE(DATE fecha) {
-    printf("%d-%d-%d\n", fecha.dia, fecha.mes, fecha.anyo);
+    printf("%02d-%02d-%04d", fecha.dia, fecha.mes, fecha.anyo);
 }
 
 void print_ALUMNO(struct ALUMNO alumno) {
-    printf("%s\t%s\t", alumno.DNI, alumno.nom_comp);
+    printf("%-12s\t%-20s\t", alumno.DNI, alumno.nom_comp);
     print_DATE(alumno.nac);
+    printf("\n");
 }
 
 unsigned is_fecha_valida(DATE fecha) {
