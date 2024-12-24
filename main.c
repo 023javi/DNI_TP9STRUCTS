@@ -34,19 +34,6 @@ void print_ALUMNO(struct ALUMNO alumno) {
     print_DATE(alumno.nac);
 }
 
-void rand_DATE(DATE *fecha) {
-    int day = 0, month = 0, year = 0;
-    month = (rand() % 12) + 1;
-
-    year = (rand() % 7) + 1999;
-
-
-
-    fecha->dia = day;
-    fecha->mes = month;
-    fecha->anyo = year;
-}
-
 unsigned is_fecha_valida(DATE fecha) {
     if (fecha.mes < 1 || fecha.mes > 12) {
         return 0;
@@ -67,6 +54,15 @@ unsigned is_fecha_valida(DATE fecha) {
 
     return 1;
 }
+
+void rand_DATE(DATE *fecha) {
+    do {
+        fecha->dia = (rand() % 31) + 1;
+        fecha->mes = (rand() % 12) + 1;
+        fecha->anyo = (rand() % 7) + 1999;
+    }while(is_fecha_valida(*fecha));
+}
+
 
 int main(void)
 {
