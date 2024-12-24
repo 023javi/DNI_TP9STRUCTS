@@ -25,8 +25,8 @@ void rand_nom_comp(char [20+1]);
 void rand_ALUMNO(struct ALUMNO  *);
 unsigned es_fecha_valida(DATE);
 
-void print_DATE(DATE *fecha) {
-    printf("%d-%d-%d\n", fecha->dia, fecha->mes, fecha->anyo);
+void print_DATE(DATE fecha) {
+    printf("%d-%d-%d\n", fecha.dia, fecha.mes, fecha.anyo);
 }
 
 void print_ALUMNO(struct ALUMNO *alumno) {
@@ -63,6 +63,10 @@ void rand_DATE(DATE *fecha) {
     fecha->dia = day;
     fecha->mes = month;
     fecha->anyo = year;
+}
+
+void rand_nom_comp(char *nombre_completo[20+1]) {
+    int i = 0, j = 0;
 }
 
 int main(void)
