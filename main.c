@@ -79,39 +79,22 @@ void rand_dig(char *dig) {
     *dig = rand() % 10 + '0';
 }
 
-void rand_DNI(int *DNI) {
-    char dig;
-    *DNI = 0;
-    for (int i = 0; i < 8; i++) {
-        rand_dig(&dig);
-        *DNI = *DNI * 10 + (dig - '0');
-    }
-}
-
-unsigned resto_DNI(unsigned DNI) {
-    return DNI % 23;
-}
-
-char letra_calculada(unsigned restoDNI) {
+void rand_str_DNI(char str_DNI[9+1]) {
+    int digit = 0, dni_number = 0, rest = 0;
     char letra[] = "TRWAGMYFPDXBNJZSQVHLCKE";
-    return letra[restoDNI];
+    for (int i = 0; i < 8; i++) {
+        digit = rand() % 10;
+        str_DNI[i] = '0' + digit;
+    }
+    dni_number = atoi(str_DNI);
+    rest = dni_number % 23;
+    str_DNI[8] = letra[rest];
+    str_DNI[9] = '\0';
 }
 
-void rand_DNI_to_str(char *dnic[10+1]) {
-    int dni = 0;
-    rand_DNI(&dni); // Generar el DNI
-    int resto = resto_DNI(dni); // Calcular el resto
-    char letra[2]; // Espacio para la letra + terminador nulo
-
-    itoa(dni, dnic, 10); // Convertir el DNI a cadena
-    letra[0] = letra_calculada(resto); // Asignar la letra calculada
-    letra[1] = '\0'; // Asegurar el terminador nulo
-
-    strcat(dnic, letra); // Concatenar la letra al final del DNI
-}
 
 void rand_ALUMNO(struct ALUMNO *alumno) {
-    rand_DNI_to_str(alumno->DNI);
+    rand_str_DNI(alumno->DNI);
     rand_nom_comp(alumno->nom_comp); // Generar el nombre completo aleatorio
     rand_DATE(&alumno->nac); // Generar la fecha de nacimiento aleatoria
 }
