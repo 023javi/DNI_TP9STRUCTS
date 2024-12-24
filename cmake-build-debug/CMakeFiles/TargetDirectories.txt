@@ -1,0 +1,3 @@
+C:/Users/javie/Desktop/ETSISI UPM 2024-2025/FUNDAMENTOS DE PROGRAMACION/pactica9/cmake-build-debug/CMakeFiles/pactica9.dir
+C:/Users/javie/Desktop/ETSISI UPM 2024-2025/FUNDAMENTOS DE PROGRAMACION/pactica9/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/javie/Desktop/ETSISI UPM 2024-2025/FUNDAMENTOS DE PROGRAMACION/pactica9/cmake-build-debug/CMakeFiles/rebuild_cache.dir
