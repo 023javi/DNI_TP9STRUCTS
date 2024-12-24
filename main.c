@@ -40,33 +40,32 @@ void rand_DATE(DATE *fecha) {
 
     year = (rand() % 7) + 1999;
 
-    if (month <= 7) {
-        if (month % 2) {
-            day = (rand() % 30) + 1;
-        }else if (month == 2) {
-            if (year % 100 && year % 400) {
-                day = (rand() % 29) + 1;
-            }else {
-                day = (rand() % 28) + 1;
-            }
-        }else {
-            day = (rand() % 31) + 1;
-        }
-    }else {
-        if (month % 2) {
-            day = (rand() % 31) + 1;
-        }else {
-            day = (rand() % 30) + 1;
-        }
-    }
+
 
     fecha->dia = day;
     fecha->mes = month;
     fecha->anyo = year;
 }
 
-void rand_nom_comp(char *nombre_completo[20+1]) {
-    int i = 0, j = 0;
+unsigned is_fecha_valida(DATE fecha) {
+    if (fecha.mes < 1 || fecha.mes > 12) {
+        return 0;
+    }
+
+    int dias_en_mes[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30 ,31};
+    if (fecha.mes == 2 && fecha.anyo % 400 && fecha.anyo % 100) {
+        dias_en_mes[fecha.mes - 1]++;
+    }
+
+    if (fecha.dia > dias_en_mes[fecha.mes - 1] || fecha.dia < 1) {
+        return 0;
+    }
+
+    if (fecha.anyo < 1999 && fecha.anyo > 2005) {
+        return 0;
+    }
+
+    return 1;
 }
 
 int main(void)
