@@ -63,6 +63,16 @@ void rand_DATE(DATE *fecha) {
     }while(!is_fecha_valida(*fecha));
 }
 
+void rand_nom_comp(char nom_comp[20+1]) {
+    int rand_name = rand() % 8;
+    int rand_apell = rand() % 8;
+
+    strcpy(nom_comp, apellidos[rand_apell]);
+    strcat(nom_comp, ", ");
+    strcat(nom_comp, nombres[rand_name]);
+}
+
+
 
 int main(void)
 {
